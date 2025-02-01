@@ -1,10 +1,42 @@
 /* NavBar.css */
 
 /* Estilos generales para el navbar */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #333;
+    padding: 10px 20px;
     overflow: hidden;
     font-family: Arial, sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.card-widget{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+li {
+    list-style-type: none;
 }
 
 /* Estilos para los enlaces dentro del navbar */
@@ -15,6 +47,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Cambiar el color de los enlaces al pasar el ratón por encima */
@@ -29,31 +62,8 @@
     color: white;
 }
 
-/* Estilos para el icono de menú en pantallas pequeñas */
+/* Estilos para el icono de menú */
 .navbar .icon {
     display: none;
 }
 
-/* Estilos para pantallas pequeñas */
-@media screen and (max-width: 600px) {
-    .navbar a:not(:first-child) {display: none;}
-    .navbar a.icon {
-        float: right;
-        display: block;
-    }
-}
-
-/* Mostrar los enlaces cuando se hace clic en el icono de menú */
-@media screen and (max-width: 600px) {
-    .navbar.responsive {position: relative;}
-    .navbar.responsive .icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    .navbar.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-}
