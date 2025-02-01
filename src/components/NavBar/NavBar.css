@@ -67,3 +67,38 @@ li {
     display: none;
 }
 
+.button {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.inputText {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+.card-widget {
+    color: white;
+    cursor: pointer;
+}
+
+.card-widget:hover {
+    background-color: #4CAF50;
+    border-radius: 5px;
+}

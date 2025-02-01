@@ -14,8 +14,8 @@ function NavBar() {
                 <li><a href="#">Contacto</a></li>
             </ul>
             <div>
-                <input type="text" placeholder="Buscar..."/>
-                <button>Buscar</button>
+                <input type="text" placeholder="Buscar..." className="inputText"/>
+                <button className="button">Buscar</button>
             </div>
             <div>
                 <CardWidget/>
