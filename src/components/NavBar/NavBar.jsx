@@ -1,27 +1,30 @@
-import CardWidget from "../CardWidget/CardWidget";
-import "./NavBar.css";
 
-function NavBar() {
 
-    return (
-        <nav className="navbar">
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Tours</a></li>
-                <li><a href="#">Paquetes</a></li>
-                <li><a href="#">Destinos</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-            <div>
-                <input type="text" placeholder="Buscar..." className="inputText"/>
-                <button className="button">Buscar</button>
-            </div>
-            <div>
-                <CardWidget/>
-            </div>
-        </nav>
-    )
-}
+    import CardWidget from "../CardWidget/CardWidget";
+    import "./NavBar.css";
+    import { Link } from "react-router-dom";
 
-export default NavBar;
+        function NavBar() {
+
+            return (
+                <nav className="navbar">
+                    <ul>
+                        <Link to={'/'}>Inicio</Link>
+                        <Link to={'/Error'}>Tours</Link>
+                        <Link to={'/Error'}>Paquetes</Link>
+                        <Link to={'destinos'}>Destinos</Link>
+                        <Link to={'/Error'}>Nosotros</Link>
+                        <Link to={'/Error'}>Contacto</Link>
+                    </ul>
+                    <div>
+                        <input type="text" placeholder="Buscar..." className="inputText"/>
+                        <button className="button">Buscar</button>
+                    </div>
+                    <div>
+                        <CardWidget/>
+                    </div>
+                </nav>
+            )
+        }
+
+    export default NavBar;

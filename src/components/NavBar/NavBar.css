@@ -8,6 +8,7 @@
     padding: 0;
 }
 .navbar {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +40,6 @@ li {
     list-style-type: none;
 }
 
-/* Estilos para los enlaces dentro del navbar */
 .navbar a {
     float: left;
     display: block;
@@ -50,20 +50,17 @@ li {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Cambiar el color de los enlaces al pasar el ratón por encima */
 .navbar a:hover {
     background-color: #ddd;
     color: black;
     border-radius: 5px;
 }
 
-/* Estilos para el enlace activo */
 .navbar a.active {
     background-color: #4CAF50;
     color: white;
 }
 
-/* Estilos para el icono de menú */
 .navbar .icon {
     display: none;
 }

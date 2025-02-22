@@ -1,17 +1,38 @@
 
-import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+    
+    import NavBar from './components/NavBar/NavBar';
+    import DetallesProducto from './components/Description/DetallesProducto';
+    import ContainerCards from './components/ContainerCards/containerCards';
+    import Error from './components/Error'
+    import Home from './components/Home/Home';
+    import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
+        function App() {
+            return (
+                
+                <BrowserRouter> 
 
-function App() {
-    return (
-        <div className="App">
-            <NavBar/>
-            <ItemListContainer greeting="Bienvenidos a PSR Turismo"/>
-        </div>
-    );
-}
+                    <div className="App">
+                        <NavBar/>
+                    </div>
+                        
+                    <Routes>
+                        <Route path='/' element={<Home/>}/>
+                        <Route path='/Destinos' element={<ContainerCards/>}/>
+                        <Route path='/Destinos/:productoID' element={<DetallesProducto/>}/>  
+                        <Route path='/Tours' element={<DetallesProducto/>}/>  
+                        <Route path='/Paquetes' element={<DetallesProducto/>}/>  
+                        <Route path='/Nosotros' element={<DetallesProducto/>}/>  
+                        <Route path='/Contacto' element={<DetallesProducto/>}/>  
+                        <Route path='*' element={<Error/>}/>
+                    </Routes>
+
+                </BrowserRouter>
+            
+                
+            );
+        }
 
 
 
