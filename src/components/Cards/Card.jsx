@@ -1,6 +1,7 @@
 
     import './Card.css';
     import { Link } from 'react-router-dom';
+    
 
         const Card = ({destino}) => {
 
@@ -13,8 +14,7 @@
                             <img src={destino.imagen} alt={destino.destino}/>
                             </div>
                             <h2>{destino.destino}</h2>
-                            <p className="precio">₡{destino.precio}</p>
-                            <Link to={`/Destinos/${destino.id}`}>Ver mas</Link>
+                            <Link to={`/Destinos/${destino.id}`} className='linkCard'>Ver mas</Link>
                         </div>
 
                 </div>

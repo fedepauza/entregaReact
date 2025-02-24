@@ -1,4 +1,3 @@
-
 const CostaRica = [
 
     {
@@ -279,15 +278,15 @@ const CostaRica = [
 
 export const getDestinos =  () => {
     return new Promise( (resolve) => {
-        setTimeout( () => resolve(CostaRica), 500)
+        setTimeout( () => resolve(CostaRica), 200)
     })
 }
 
 export const getDestinosID = (productoID) => {
     return new Promise ( (resolve) => {
         setTimeout ( () => {
-            resolve(CostaRica.find((dest) => dest.id === productoID))
-        }, 1000)
+            resolve(CostaRica.find((dest) => dest.id === Number(productoID)))
+        }, 1050)
     })
 }
 
@@ -295,7 +294,8 @@ export const getDestinosCat = (category) => {
     return new Promise ( (resolve) => {
         setTimeout ( () => {
             resolve (CostaRica.filter( (cat) => cat.categoria === category))
-        })
+            
+        }, 500)
     })
 
 }

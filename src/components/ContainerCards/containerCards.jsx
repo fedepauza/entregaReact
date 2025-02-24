@@ -1,26 +1,39 @@
 
-    import Card from "../Cards/Card";
-    import {getDestinos} from '../assets/dataBase'
-    import { useParams } from "react-router-dom";
-    import './containerCards.css';
 
-        function ContainerCards() {
+import { useState, useEffect } from "react";
+import Card from "../Cards/Card";
+import {getDestinos} from '../assets/dataBase'
+import './containerCards.css';
 
-        
-            const {productoID} = useParams();
-            const destinos  = getDestinos()
+    function ContainerCards() {
 
-            const dest = destinos?.CostaRica?.find((prod) => prod.id === Number(productoID))
+    
+        const [destinos, setDestinos] = useState([]);
+
+    useEffect(() => {
+        getDestinos().then((data) => {
+            setDestinos(data);
+        });
+    }, []);
 
 
-            return (
-                <div className="containerCards">
-                    {destinos?.CostaRica?.map( (destino) => {
+        return (
+
+            <div className="containerCards">
+
+                {destinos.map( (destino) => {
+
+                    return (
+
                         <Card key={destino.id} destino={destino}/>
-                    })}
-                
-                </div>
-            );
-        }
 
-    export default ContainerCards;
+                    )
+
+                })}
+            
+            </div>
+
+        );
+    }
+
+export default ContainerCards;

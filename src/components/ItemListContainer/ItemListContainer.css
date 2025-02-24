@@ -7,7 +7,7 @@
     margin-top: 50px;
 }
 h1 {
-    color: rgb(255, 255, 255);
+    color: rgb(64, 64, 64);
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.603);
     font-size: 50px;
     text-align: center;
@@ -20,3 +20,32 @@ h1 {
     margin-right: 10px;
 }
 
+.linkContainer {
+    width: 75%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.linksFiltro {
+    bottom: 20px;
+    width: 40%;
+    background-color: #4d9851;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.linksFiltro:hover {
+    background-color: #6ed772;
+}

@@ -7,8 +7,7 @@
 }
 
 .cardContenedor {
-    width: 100%;
-    /* height: 541px; */
+    width: 20%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -20,23 +19,29 @@
     flex-direction: column;
     align-items: center;
     width: 300px;
-    height: 340px;
+    height: 350px;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0 10px 12px rgba(0, 0, 0, 0.342);
 }
 
-/* .imageContainer {
-    width: 300px;
-    height: 250px;
-} */
-.card img {
+.imageContainer {
     width: 100%;
+    height: 200px;
+    
+}
+.imageContainer img {
+    max-width: 300px;
+    min-width: 300px;
+    max-height: 200px;
+    min-height: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
 .card h2 {
+    position: absolute;
+    bottom: 60px;
     text-align: center;
     margin: 10px;
     font-family: sans-serif ;
@@ -48,6 +53,7 @@
     bottom: 10px;
     font-size: 1rem;
 }
+
 .card p {
     text-align: center;
     margin: 10px;
@@ -56,13 +62,23 @@
 }
 
 
-.buttonCards {
+.linkCard {
     position: absolute;
     bottom: 20px;
     width: 75%;
-    padding: 10px;
-    background-color: #f0c14b;
+    background-color: #4d9851;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.linkCard:hover {
+    background-color: #6ed772;
 }

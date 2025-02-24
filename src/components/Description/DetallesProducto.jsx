@@ -1,40 +1,40 @@
 
-    import { Link, useParams } from 'react-router-dom';
-    import { getDestinosID } from '../assets/dataBase';
+    import { Link, useParams} from 'react-router-dom';
+    import { useState, useEffect } from "react";
+    import { getDestinosID} from '../assets/dataBase';
+    import './DetallesProducto.css'
 
 
         function DetallesProducto() {
 
-            const {productoID} = useParams();
-            const turismo  = getDestinosID.CostaRica?.find ((prod) => prod.id === Number(productoID));
 
+            const {productoID} = useParams()
+            const [dest, setDest] = useState();
 
+            console.log('ID recibido', productoID)
 
-                if (!turismo) {
-                    return (
-                        <div>
-                            <h1>Producto no encontrado</h1>
-                            <Link to="/Destinos">Volver</Link>
-                        </div>
-                    );
-                }
+            useEffect(() => {
+                getDestinosID(Number(productoID))
+                    .then((data) => {
+                        setDest(data)
+                    })
+                    .catch(err => console.error("Error al obtener el destino:", err))
+            }, [productoID])
 
-            const {destino, precio, descripcion, imagen} = turismo;
-
+            if (!dest) {
+                return <p className='cargando'>Cargando...</p>
+            }
 
             return (
 
+                    <div key={dest.id} dest={dest} className='detallesProducto'>
+                        <h1 className='detallesTitle'>{dest.destino}</h1>
+                        <img src={dest.imagen} alt={dest.destino} className='detallesImg'/>
+                        <p className='detallesDescrip'>{dest.descripcion}</p>
+                        <p className='detallesPrice'>₡{dest.precio}</p>
+                        <Link to="/Destinos" className='detallesLink'>Volver</Link>
+                    </div>
 
-                        <div>
-                            <h1>{destino}</h1>
-                            <img src={imagen} alt={destino} />
-                            <p>{descripcion}</p>
-                            <p>₡{precio}</p>
-                            <Link to="/Destinos">Volver</Link>
-                        </div>
-                    
-
-            )
-        }
+                )}
 
     export default DetallesProducto;

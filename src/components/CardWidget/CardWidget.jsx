@@ -1,6 +1,5 @@
 
 import { TiShoppingCart } from "react-icons/ti";
-import ContainerCards from "../ContainerCards/containerCards";
 
 function CardWidget() {
 

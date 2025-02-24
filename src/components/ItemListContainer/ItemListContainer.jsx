@@ -1,47 +1,56 @@
 
+
+
+
+    /********************************************************/ 
+    /******************* Federico Pauza  ********************/ 
+    /********************************************************/
+
+    
 import React, { useEffect, useState } from 'react';
-import { getDestinos, getDestinosCat } from '../assets/dataBase';
+import { getDestinosCat } from '../assets/dataBase';
 import './ItemListContainer.css';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import DetallesProducto from '../Description/DetallesProducto';
+import { Link, useParams } from 'react-router-dom';
+
 
 const ItemListContainer = ({ greeting }) => {
     
-    const [dest, setDest] = useState ([])
+    const [cat, setCat] = useState ()
     const { category } = useParams()
 
     useEffect(() => {
-        const asynFun = category ? getDestinosCat : getDestinos;
+        
+        getDestinosCat(category)
+        .then((data)=> {
+            setCat(data)
+        })
 
-        asynFun (category)
-            .then ((resp) => {
-                setDest (resp)
-            })
-            .catch ((err) => {
-                console.error(err)
-            })
     }, [category])
+
+    if (!cat) {
+        return <p className='cargando'>Cargando...</p>;
+    }
+
 
     return (
     
         <div className='divTitulo'>
+            
             <h1>{greeting}</h1>
             <img className="imgLogo" src="https://cdn-icons-png.flaticon.com/512/3942/3942076.png" alt="" />
 
-            <div>
 
-                <Link to={'Caribe'}>Caribe de Costa Rica</Link>
-                <Link to={'Cerro'}>Cerros</Link>
-                <Link to={'Ciudad'}>Ciudades</Link>
-                <Link to={'Parque'}>Parques nacionales</Link>
-                <Link to={'Playa'}>Playas</Link>
-                <Link to={'Volcan'}>Volcanes</Link>       
+            <div key={cat.id} cat={cat} className='linkContainer'>
+
+                <Link to={`/Destinos/${cat.caribe}`} className='linksFiltro'>Caribe de Costa Rica</Link>
+                <Link to={`/Destinos/${cat.cerro}`} className='linksFiltro'>Cerros</Link>
+                <Link to={`/Destinos/${cat.ciudad}`} className='linksFiltro'>Ciudades</Link>
+                <Link to={`/Destinos/${cat.parque}`} className='linksFiltro'>Parques nacionales</Link>
+                <Link to={`/Destinos/${cat.playa}`} className='linksFiltro'>Playas</Link>
+                <Link to={`/Destinos/${cat.volcan}`} className='linksFiltro'>Volcanes</Link> 
                 
             </div>
 
-            <DetallesProducto dest = {dest}/>
-            
         </div>
 
     );
