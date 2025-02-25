@@ -19,6 +19,8 @@ const ItemListContainer = ({ greeting }) => {
     const [dest, setDest] = useState ([])
     const { category } = useParams()
 
+    
+
     useEffect(() => {
         
         const asynFun = category ? getDestinosCat : getDestinos
@@ -30,16 +32,18 @@ const ItemListContainer = ({ greeting }) => {
         .catch((err) => {
             console.error(err)
         })
-
+        
     }, [category])
-
-    if (!dest) {
-        return <p className='cargando'>Cargando...</p>;
-    }
-
-
-    return (
     
+    
+    // if (!dest) {
+        //     return <p className='cargando'>Cargando...</p>;
+        // }
+        
+        
+        
+        return (
+            
             <div className='divTitulo'>
             
                 <h1>{greeting}</h1>
@@ -55,14 +59,14 @@ const ItemListContainer = ({ greeting }) => {
                     <Link to={`/Destinos/playa`} className='linksFiltro'>Playas</Link>
                     <Link to={`/Destinos/volcan`} className='linksFiltro'>Volcanes</Link> 
                     
-                    <ContainerCards dest={dest}/>
-                    
+                    {/* <ContainerCards dest={dest}/> */}
+
                 </div>
 
 
             </div>
 
-    );
+);
 }
 
 export default ItemListContainer;

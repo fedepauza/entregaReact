@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Card from "../Cards/Card";
-import { getDestinosCat } from '../assets/dataBase'
+import { getDestinos } from '../assets/dataBase'
 import './containerCards.css';
 
     function ContainerCards() {
@@ -12,7 +12,7 @@ import './containerCards.css';
         const [destinos, setDestinos] = useState([]);
 
     useEffect(() => {
-        getDestinosCat (category)
+        getDestinos (category)
         .then((data) => {
             setDestinos(data);
         });
@@ -25,9 +25,10 @@ import './containerCards.css';
             <div className="containerCards">
 
                 {destinos?.map( (destino) => (
-                        <Card key={destino.id} {...destino}/>
+                        <Card key={destino.id} destino={destino}/>
 
                     ))
+
                 }
             
             </div>
