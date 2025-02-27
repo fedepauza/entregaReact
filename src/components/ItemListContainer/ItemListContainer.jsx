@@ -11,7 +11,7 @@ import React, { useEffect, useState } from 'react';
 import { getDestinos, getDestinosCat } from '../assets/dataBase';
 import './ItemListContainer.css';
 import { Link, useParams } from 'react-router-dom';
-import ContainerCards from '../ContainerCards/containerCards';
+
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -20,11 +20,11 @@ const ItemListContainer = ({ greeting }) => {
     const { category } = useParams()
 
     
-
     useEffect(() => {
+        console.log("categoria recibida: " , category)
         
         const asynFun = category ? getDestinosCat : getDestinos
-    
+        
         asynFun(category)
         .then((data)=> {
             setDest(data)
@@ -50,19 +50,9 @@ const ItemListContainer = ({ greeting }) => {
                 <img className="imgLogo" src="https://cdn-icons-png.flaticon.com/512/3942/3942076.png" alt="" />
 
 
-                <div dest={dest} className='linkContainer'>
+                
 
-                    <Link to={`/Destinos/caribe`} className='linksFiltro'>Caribe de Costa Rica</Link>
-                    <Link to={`/Destinos/cerro`} className='linksFiltro'>Cerros</Link>
-                    <Link to={`/Destinos/ciudad`} className='linksFiltro'>Ciudades</Link>
-                    <Link to={`/Destinos/parque`} className='linksFiltro'>Parques nacionales</Link>
-                    <Link to={`/Destinos/playa`} className='linksFiltro'>Playas</Link>
-                    <Link to={`/Destinos/volcan`} className='linksFiltro'>Volcanes</Link> 
-                    
-                    {/* <ContainerCards dest={dest}/> */}
-
-                </div>
-
+                  
 
             </div>
 
